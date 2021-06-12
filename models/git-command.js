@@ -15,6 +15,19 @@ class GitCommand {
             For assignment #1:
             Create logic here and run unit testing.
         */
+        let num_of_changes = Object.keys(this.working_directory.files).length;
+        let message = `You have ${num_of_changes} change/s.\n`;
+        if(num_of_changes > 0){
+            let counter = 0;
+            for(var file in this.working_directory.files){
+                counter++;
+                if(counter < num_of_changes)
+                    message += `${file}\n`;
+                else
+                    message += `${file}`;
+            }
+        }
+        return message;
     }
 
     //Command: git add <filename/file directory/wildcard> 
